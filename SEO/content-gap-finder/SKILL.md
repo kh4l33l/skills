@@ -1,24 +1,24 @@
 ---
 name: content-gap-finder
 description: >
-  Analyze a website page's GSC query data to find content gaps and new page opportunities.
+  Analyze a website page's search query data to find content gaps and new page opportunities.
   Use this skill whenever the user says things like "find content gaps", "what should I add to this page",
   "content gap analysis", "what new pages should I create", "analyze queries for [url]", "daily content task",
   "run the content gap finder", "content opportunities", "what are people searching for on this page",
   "what queries am I missing", "gap analysis", or "expand this page". Also trigger when the user pastes
   a URL for a verified site and asks what content to add, or asks "what should I write about next" or
   "pick a page to improve". If no URL is given, the skill auto-picks the best candidate page.
-  This skill combines GSC query data, live page scraping, and DataForSEO keyword enrichment to produce
+  This skill combines search performance data, live page scraping, and optional keyword enrichment to produce
   an HTML report with concrete content section suggestions and new page ideas.
 ---
 
 # Content Gap Finder
 
-Analyzes a website page by comparing its actual content against the GSC queries driving impressions to it. Identifies content sections to add and new standalone pages to create. Outputs a styled HTML report.
+Analyzes a website page by comparing its actual content against the search queries driving impressions to it. Identifies content sections to add and new standalone pages to create. Outputs a styled HTML report.
 
 ## Defaults
 
-- **GSC site URL**: The verified property for the submitted site, inferred from the URL when possible or supplied by the user.
+- **Search performance property URL**: The verified property for the submitted site, inferred from the URL when possible or supplied by the user.
 - **Audit history file**: `.skill-state/content-gap-audits.json`
 - **Report output**: `outputs/content-gap-report.html`
 
@@ -31,19 +31,19 @@ Analyzes a website page by comparing its actual content against the GSC queries 
 **If no URL is provided**, auto-pick the best candidate:
 
 1. Load the audit history from `.skill-state/content-gap-audits.json` (create it as `{"audits":[]}` if it doesn't exist)
-2. Query GSC for the top 50 pages by clicks over the last 90 days:
-   - `gsc_query_search_analytics` with dimensions `["page"]`, row_limit 50, date range = last 90 days
+2. Query the available search performance source for the top 50 pages by clicks over the last 90 days:
+   - Use dimensions equivalent to `["page"]`, row limit 50, date range = last 90 days
 3. Filter out pages that were audited in the last 30 days (check audit history)
 4. Filter out non-content pages (anything matching `/cart`, `/checkout`, `/my-account`, `/wp-admin`, `/wp-login`, `/feed`, or the site's bare homepage itself unless no other candidates exist)
 5. Pick the top remaining page by clicks — this is the page doing well enough to be worth investing in, but hasn't been audited recently
 
 Tell the user which page was selected and why (e.g., "Auto-picked /blog/product-category-guide/ — 342 clicks in the last 90 days, last audited 45 days ago").
 
-### Step 2: Pull GSC query data for the page
+### Step 2: Pull search performance data for the page
 
-Query GSC for all queries driving traffic to this specific page over the last 90 days.
+Query Google Search Console, or use an equivalent user-provided export, for all queries driving traffic to this specific page over the last 90 days.
 
-GSC doesn't support filtering by page and query simultaneously in a single call. Instead:
+If using the Google Search Console API, it may not support filtering by page and query simultaneously in a single call. Instead:
 - First call: dimensions `["page"]` to confirm the page's overall metrics
 - Second call: dimensions `["query", "page"]` with row_limit 500 to get query-page pairs, then filter results to only rows matching the target page URL
 
@@ -51,7 +51,7 @@ Sort the resulting queries by impressions descending. These are the signals peop
 
 ### Step 3: Scrape the actual page content
 
-Use `web_fetch` to retrieve the page content. Save it for analysis. Extract:
+Use the available web fetch, browser, or scraping tool to retrieve the page content. Save it for analysis. Extract:
 - The page title and H1
 - All H2 and H3 headings (these define the content structure)
 - Key topics and terms covered in the body text
@@ -61,20 +61,20 @@ This is what the page actually delivers. The gap between what people search for 
 
 ### Step 4: Enrich queries with keyword data
 
-Take the top 30-50 queries by impressions from Step 2 and batch them into a DataForSEO keyword overview call:
+Take the top 30-50 queries by impressions from Step 2 and batch them into an available keyword data provider, such as DataForSEO or a similar source:
 
 ```
-dataforseo_labs_google_keyword_overview:
-  keywords: [top queries from GSC]
+keyword_overview:
+  keywords: [top queries from search performance data]
   language_code: "en"
   location_name: "United States"
 ```
 
-This adds search volume, CPC, competition level, and search intent data to each query. This enrichment helps prioritize which gaps matter most — a query with 5,000 monthly searches is more valuable than one with 50.
+This can add search volume, CPC, competition level, and search intent data to each query. This enrichment helps prioritize which gaps matter most — a query with 5,000 monthly searches is more valuable than one with 50.
 
 ### Step 5: Analyze and categorize
 
-Compare the GSC queries against the page content. Categorize each query into one of these buckets:
+Compare the search queries against the page content. Categorize each query into one of these buckets:
 
 **A) Well-covered** — The page already has a section addressing this query. Skip these.
 
@@ -97,7 +97,7 @@ Compare the GSC queries against the page content. Categorize each query into one
 **For each "add a section" recommendation:**
 - Suggested H2 or H3 heading
 - What the section should cover (2-3 sentences)
-- Which GSC queries it would satisfy (list them with impressions + search volume)
+- Which search queries it would satisfy (list them with impressions + search volume)
 - Estimated position improvement rationale
 - Priority score (High / Medium / Low) based on combined impressions + search volume
 
@@ -133,7 +133,7 @@ Create the file if it doesn't exist yet.
 
 ### Step 9: Present the report
 
-Use `present_files` to deliver the HTML report. Give a brief summary in chat:
+Deliver the HTML report using the environment's normal artifact or file-sharing mechanism. Give a brief summary in chat:
 - Which page was analyzed
 - How many queries were examined
 - Top 3 "add a section" recommendations (one-liner each)
@@ -239,7 +239,7 @@ Each card includes:
 
 ### Search intent pills
 
-When DataForSEO provides search intent, display as small inline pills:
+When the keyword data provider returns search intent, display it as small inline pills:
 - Informational: `#dbeafe` background, `#1e40af` text
 - Commercial: `#d1fae5` background, `#065f46` text
 - Transactional: `#fed7aa` background, `#9a3412` text
@@ -259,6 +259,6 @@ Two features only:
 - The audit history file persists between sessions. Always check for it and create it if missing.
 - When auto-picking, prefer pages with more impressions over more clicks — high impressions with lower clicks means more room to grow.
 - Don't recommend sections that would make the page unfocused. If a query is popular but off-topic, it belongs in the "new page" bucket, not the "add a section" bucket.
-- The DataForSEO keyword overview call can handle up to 700 keywords at once, but keep it to 30-50 to stay focused on the most meaningful queries.
-- If DataForSEO is unavailable or errors, proceed without enrichment — the GSC data alone (impressions, clicks, position) is still valuable enough to generate useful recommendations.
+- Some keyword overview providers can handle hundreds of keywords at once, but keep it to 30-50 to stay focused on the most meaningful queries.
+- If keyword enrichment is unavailable or errors, proceed without it — search performance data alone (impressions, clicks, position) is still valuable enough to generate useful recommendations.
 - Always batch tool calls where possible to minimize round-trips.

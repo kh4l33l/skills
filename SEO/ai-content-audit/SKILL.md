@@ -15,7 +15,7 @@ The user will provide ONE of:
 
 ### If the input is a URL:
 
-1. Use `web_fetch` to retrieve the page content as markdown
+1. Use the available web fetch, browser, or scraping tool to retrieve the page content as markdown
 2. Save the raw scraped content to a writable workspace file such as `.skill-state/ai-content-audit/scraped-content.md`
 3. Proceed to the audit
 
@@ -234,7 +234,7 @@ Use actual CSS-styled boxes, not ASCII art. The "Before" box should have a light
 ## Workflow Summary
 
 1. Receive URL or text from user
-2. If URL → scrape with `web_fetch`, save to local file
+2. If URL → scrape with the available web fetch, browser, or scraping tool, then save to local file
 3. If text → save to local file
 4. Read saved content
 5. Analyze content against all 7 issues
@@ -242,7 +242,7 @@ Use actual CSS-styled boxes, not ASCII art. The "Before" box should have a light
 7. Write specific before/after examples for each issue using ACTUAL content from the page
 8. Generate priority action plan (quick wins first)
 9. Build HTML audit report
-10. Save and present to user via `present_files`
+10. Save the report and return the file path or artifact using the environment's normal presentation mechanism
 
 ## Critical Rules
 

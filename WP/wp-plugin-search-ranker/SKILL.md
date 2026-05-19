@@ -87,12 +87,12 @@ Use `scripts/function_score.py` to compute approximate function-score components
 
 ### Step 6: Decide whether to pull search volume data
 
-This is the only optional external call. **Only pull DataForSEO volumes when the analysis suggests the user should consider pivoting their title/positioning to a different but related term.** For example:
+This is the only optional external keyword-data call. **Only pull keyword volumes when the analysis suggests the user should consider pivoting their title/positioning to a different but related term.** For example:
 
 - They're ranked #11 on a saturated term and #5 on a related smaller term — should they reposition?
 - The recommended title change would weaken their position on the original term to gain on a related one.
 
-In those cases, call `dataforseo:dataforseo_labs_google_keyword_overview` with the relevant variations to ground the recommendation in real volume data. Otherwise skip it — it adds noise.
+In those cases, use DataForSEO or another available keyword volume provider with the relevant variations to ground the recommendation in real volume data. Otherwise skip it — it adds noise.
 
 For everything else (rating fixes, support resolution, density tweaks within the same term), don't bother with volume data.
 
