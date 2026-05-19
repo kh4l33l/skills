@@ -7,6 +7,13 @@ description: Audit web pages or text content for the 7 critical AI content SEO i
 
 Audits a web page or block of text against the seven critical AI content issues defined below. Produces a detailed before/after audit report as a styled HTML file.
 
+## Recommended Tools
+
+- **Web fetch/browser tool**: Required when the input is a URL, so the audit uses the live page content.
+- **Google Search Console (GSC) MCP**: Recommended when available to ground ranking, clicks, impressions, CTR, and query intent in real search data.
+- **GA4 MCP**: Recommended when available to add engagement context such as landing-page sessions, engagement rate, average engagement time, and conversions.
+- **DataForSEO MCP**: Optional when keyword volume, SERP context, or search intent would sharpen the recommendations.
+
 ## Input Handling
 
 The user will provide ONE of:
@@ -15,7 +22,7 @@ The user will provide ONE of:
 
 ### If the input is a URL:
 
-1. Use the available web fetch, browser, or scraping tool to retrieve the page content as markdown
+1. Use a web fetch/browser tool to retrieve the page content as markdown
 2. Save the raw scraped content to a writable workspace file such as `.skill-state/ai-content-audit/scraped-content.md`
 3. Proceed to the audit
 
@@ -234,7 +241,7 @@ Use actual CSS-styled boxes, not ASCII art. The "Before" box should have a light
 ## Workflow Summary
 
 1. Receive URL or text from user
-2. If URL → scrape with the available web fetch, browser, or scraping tool, then save to local file
+2. If URL → scrape with a web fetch/browser tool, then save to local file
 3. If text → save to local file
 4. Read saved content
 5. Analyze content against all 7 issues

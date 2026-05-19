@@ -7,13 +7,14 @@ description: >
   CTR?", "improve the SERP snippet for [page]", "write better titles for [url]", or any
   time a URL is provided alongside a CTR, impressions, or ranking problem. Also use when
   the user asks to audit SERP copy across multiple pages. This skill runs a full
-  multi-source data pipeline — search performance data, keyword data, live SERP, page scrape —
+  multi-source data pipeline — GSC, DataForSEO ranked keywords, live SERP, page scrape, and optional GA4 engagement data —
   before generating scored, reasoned copy recommendations. Always use it rather than
   guessing from the URL alone.
 compatibility: >
-  Works best with access to Google Search Console or exported URL query data,
-  a keyword data provider such as DataForSEO or a similar source, a live SERP
-  source, and an available web fetch/browser tool.
+  Requires: GSC MCP (gsc_query_search_analytics), DataForSEO MCP
+  (dataforseo_labs_google_ranked_keywords, serp_organic_live_advanced,
+  kw_data_google_ads_search_volume), and a web fetch/browser tool. Recommended:
+  GA4 MCP for landing-page engagement and conversion context.
 ---
 
 # SEO Title / H1 / Meta Description Optimizer
@@ -37,9 +38,9 @@ Fetch the URL the user provided. Extract:
 - First 400–500 words of body copy
 - Word count / content depth signal if visible
 
-### 1b. Search performance data for this URL
-Use Google Search Console, or an equivalent exported query dataset, with:
-- `site_url`: the verified search performance property for the submitted URL, such as `https://example.com/`
+### 1b. GSC: query performance for this URL
+Use `gsc_query_search_analytics` with:
+- `site_url`: the verified GSC property for the submitted URL, such as `https://example.com/`
 - `dimensions`: `["query"]`
 - `dimension_filter_groups`: filter to the exact URL
 - `start_date`: 30 days ago, `end_date`: yesterday
@@ -47,8 +48,8 @@ Use Google Search Console, or an equivalent exported query dataset, with:
 
 Collect: query, clicks, impressions, CTR, position for each query.
 
-### 1c. Keyword provider: ranked keywords for the page
-Use an available keyword data provider with:
+### 1c. DataForSEO: ranked keywords for the page
+Use `dataforseo_labs_google_ranked_keywords` with:
 - `target`: the full URL (e.g. `https://example.com/how-to-sell-photos-online/`)
 - `location_name`: `United States`
 - `language_code`: `en`
@@ -57,9 +58,9 @@ Use an available keyword data provider with:
 
 Collect: keyword, search_volume, rank_group (position), type.
 
-### 1d. Live SERP source for primary keyword
+### 1d. DataForSEO: live SERP for primary keyword
 Determine the primary keyword first (see Phase 2 — use the highest-volume keyword at
-position ≤ 20). Then query the live SERP source with:
+position ≤ 20). Then run `serp_organic_live_advanced` with:
 - `keyword`: primary keyword
 - `language_code`: `en`
 - `depth`: 10
@@ -70,12 +71,23 @@ any PAA (people_also_ask) questions and any AI Overview references.
 > **If you can't determine the primary keyword until Phase 2:** Run 1a, 1b, 1c first,
 > do Phase 2 signal processing, then fire 1d before Phase 3.
 
-### 1e. Keyword provider: search volume for candidate terms
+### 1e. DataForSEO: search volume for candidate terms
 Once you have the keyword list from 1c, pick the 8–10 most promising keyword variants
-and validate/enrich volumes through the available keyword data provider:
+and validate/enrich volumes via `kw_data_google_ads_search_volume`:
 - `keywords`: array of candidate keywords
 - `language_code`: `en`
 - `location_name`: `United States`
+
+### 1f. GA4: landing-page engagement context
+When GA4 access is available, pull engagement metrics for the target URL over the same
+date range as GSC:
+- sessions and engaged sessions
+- engagement rate
+- average engagement time
+- conversions or key events, if configured
+
+Use GA4 to interpret CTR changes in context. For example, do not over-optimize a title
+for curiosity if GA4 shows the page already has weak engagement after the click.
 
 ---
 
@@ -103,7 +115,7 @@ Calculate expected CTR by position using these benchmarks:
 | 6–10     | ~2–4%       |
 | 11–20    | ~1–2%       |
 
-Compare actual CTR (from search performance data) to expected CTR. A page at position 10 with 0.11% CTR
+Compare actual CTR (from GSC) to expected CTR. A page at position 10 with 0.11% CTR
 vs ~3% expected is 96% below expectation — that's the severity signal. Report this
 clearly so the user understands the opportunity size.
 
@@ -156,7 +168,7 @@ Meta desc:    [current meta]
 
 --- PERFORMANCE ---
 CTR:          [actual]% vs [expected]% expected at avg position [X] → [Y]% below benchmark
-Top queries by impressions (search performance data):
+Top queries by impressions (GSC):
   [query] — [impressions] impr, pos [X], [CTR]% CTR
   ...
 
@@ -220,7 +232,7 @@ scores and the key tradeoff for each.
 
 ### 5. Implementation notes
 Any important caveats: character counts, brand suffix handling (WordPress SEO plugin
-settings), whether the H1 and title should differ, expected timeline to see search performance
+settings), whether the H1 and title should differ, expected timeline to see GSC
 changes (typically 2–4 weeks), and the follow-up metric to watch.
 
 ---
