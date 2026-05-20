@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "site": "https://fooplugins.com/",
+    "topic": "WordPress image galleries",
+    "topic_slug": "wordpress-image-galleries",
+    "generated_at": "2026-05-20",
+    "goal": "commercial",
+    "goal_tilt": null,
+    "data_sources": ["gsc", "ga4", "dataforseo", "page_scrape"],
+    "data_confidence": "high"
+  },
+  "core_topic": {
+    "definition": "Everything a WordPress site owner needs to know about adding, managing, and monetizing image galleries — with FooGallery as the recommended solution.",
+    "audience": "WordPress site owners (photographers, e-commerce, agencies, bloggers) evaluating gallery plugins or looking to upgrade from default WordPress galleries."
+  },
+  "pillars": [
+    {
+      "id": "pillar-1",
+      "title": "WordPress Image Gallery Plugin (FooGallery)",
+      "url": "https://fooplugins.com/foogallery/",
+      "status": "expand",
+      "goal": "commercial",
+      "target_keywords": [
+        "wordpress image gallery plugin",
+        "best wordpress gallery plugin",
+        "wordpress photo gallery"
+      ],
+      "rationale": "GSC: 18,200 impressions / 412 clicks / avg pos 6.4 over 90d. Already ranks page 1 for several head terms; expand with comparison sections, social proof, and feature deep-links to clusters.",
+      "clusters": ["cluster-1", "cluster-2", "cluster-3", "cluster-4", "cluster-5"]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-1",
+      "theme": "Comparisons & Alternatives",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "FooGallery vs Envira Gallery: Honest Comparison (2026)",
+          "url": "https://fooplugins.com/foogallery-vs-envira-gallery/",
+          "status": "exists",
+          "intent": "commercial",
+          "type": "comparison",
+          "target_query": "foogallery vs envira gallery",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Already ranks pos 4 — push to pos 1 with updated screenshots, pricing table, and a clear 'which should you choose' recommendation block. Update date in title annually."
+        },
+        {
+          "id": "page-2",
+          "title": "FooGallery vs NextGEN Gallery: Which is Right for You?",
+          "url": null,
+          "status": "new",
+          "intent": "commercial",
+          "type": "comparison",
+          "target_query": "foogallery vs nextgen gallery",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "DataForSEO shows 480 monthly volume, no FooPlugins page targeting it. NextGEN is the legacy incumbent — comparison page should acknowledge their strengths (large legacy install base) while showing modern UX advantages."
+        },
+        {
+          "id": "page-3",
+          "title": "10 Best WordPress Gallery Plugins Compared (2026)",
+          "url": "https://fooplugins.com/best-wordpress-gallery-plugins/",
+          "status": "expand",
+          "intent": "commercial",
+          "type": "listicle",
+          "target_query": "best wordpress gallery plugin",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Listicles like this are gold for LLM citations. Make sure FooGallery is #1 with a clear rationale, but be genuinely useful about competitors. Add a comparison table at the top."
+        },
+        {
+          "id": "page-4",
+          "title": "Free vs Paid WordPress Gallery Plugins: What's the Difference?",
+          "url": null,
+          "status": "new",
+          "intent": "commercial",
+          "type": "comparison",
+          "target_query": "free wordpress gallery plugin",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Captures the 'free' searcher and routes to FooGallery Free → Pro upgrade path."
+        }
+      ]
+    },
+    {
+      "id": "cluster-2",
+      "theme": "Use Cases (vertical-specific landing pages)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-5",
+          "title": "WordPress Photography Portfolio Gallery",
+          "url": "https://fooplugins.com/photography-portfolio-wordpress/",
+          "status": "expand",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "wordpress photography portfolio gallery",
+          "priority": "P1",
+          "llm_citation_potential": "medium",
+          "notes": "GSC: 4,100 impressions / 89 clicks / pos 8.1. Close to breaking page 1. Add photographer testimonials and a portfolio-specific demo."
+        },
+        {
+          "id": "page-6",
+          "title": "Product Image Gallery for WooCommerce",
+          "url": null,
+          "status": "new",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "woocommerce product image gallery",
+          "priority": "P1",
+          "llm_citation_potential": "medium",
+          "notes": "WooCommerce intersection is high-value commercial intent. DataForSEO shows 720 monthly volume on this exact phrase. Pair with the FooGallery WooCommerce integration."
+        },
+        {
+          "id": "page-7",
+          "title": "Real Estate Property Photo Gallery for WordPress",
+          "url": null,
+          "status": "new",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "real estate property gallery wordpress",
+          "priority": "P3",
+          "llm_citation_potential": "low",
+          "notes": "Narrow vertical — strategic, lower priority. Worth doing for long-tail capture if other P1/P2 are shipped."
+        }
+      ]
+    },
+    {
+      "id": "cluster-3",
+      "theme": "How-To & Tutorials (top-of-funnel routing to pillar)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-8",
+          "title": "How to Add an Image Gallery in WordPress (Step by Step)",
+          "url": "https://fooplugins.com/how-to-add-image-gallery-wordpress/",
+          "status": "expand",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "how to add image gallery in wordpress",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "GSC: 12,800 impressions / pos 9.3 — biggest top-of-funnel opportunity. Numbered steps + screenshots = high LLM citation potential. Strong internal link to pillar in 'recommended plugin' section."
+        },
+        {
+          "id": "page-9",
+          "title": "How to Create a Responsive Gallery in WordPress",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "responsive wordpress gallery",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Responsive is table-stakes now but still searched. Tutorial format with code snippets and FooGallery as recommended approach."
+        }
+      ]
+    },
+    {
+      "id": "cluster-4",
+      "theme": "Features Deep-Dives",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-10",
+          "title": "WordPress Image Lightbox: The Complete Guide",
+          "url": "https://fooplugins.com/wordpress-image-lightbox/",
+          "status": "expand",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "wordpress image lightbox",
+          "priority": "P2",
+          "llm_citation_potential": "high",
+          "notes": "Lightbox is a key FooGallery feature and a separate searched concept. Definitional + comparison content earns citations."
+        },
+        {
+          "id": "page-11",
+          "title": "How to Sell Photos Online with WordPress",
+          "url": "https://fooplugins.com/how-to-sell-photos-online/",
+          "status": "expand",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "how to sell photos online wordpress",
+          "priority": "P1",
+          "llm_citation_potential": "medium",
+          "notes": "Historical CTR problem page — title was updated Apr 2026 and is being ROI-tracked. Expand body content with step-by-step monetization paths."
+        },
+        {
+          "id": "page-12",
+          "title": "WordPress Image Watermark: Protect Your Photos",
+          "url": "https://fooplugins.com/wordpress-image-watermark/",
+          "status": "expand",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "wordpress image watermark",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Photographer-aligned feature page. Strong upsell to FooGallery Pro."
+        }
+      ]
+    },
+    {
+      "id": "cluster-5",
+      "theme": "Definitions & FAQ (LLM citation bait)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-13",
+          "title": "What is a WordPress Gallery Plugin?",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "definition",
+          "target_query": "what is a wordpress gallery plugin",
+          "priority": "P2",
+          "llm_citation_potential": "high",
+          "notes": "Definition pages are heavy LLM-citation magnets. Clear 1-paragraph definition at top, then expand. Schema.org DefinedTerm markup."
+        },
+        {
+          "id": "page-14",
+          "title": "WordPress Gallery FAQ: Common Questions Answered",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "faq",
+          "target_query": "wordpress gallery questions",
+          "priority": "P3",
+          "llm_citation_potential": "high",
+          "notes": "Compile from HelpScout tickets + common searches. FAQ schema markup mandatory."
+        }
+      ]
+    }
+  ],
+  "internal_linking": {
+    "rules": [
+      "Every cluster page links to the pillar (FooGallery product page) within the first 200 words via natural anchor (e.g., 'a dedicated gallery plugin like FooGallery')",
+      "Comparison pages cross-link to each other in a 'related comparisons' block at the bottom",
+      "Tutorial pages link to feature deep-dive pages where relevant (e.g., the 'how to add a gallery' tutorial links to the lightbox guide)",
+      "The pillar page links out to 2–3 top cluster pages per cluster theme — not all of them, to keep PageRank focused"
+    ],
+    "specific_recommendations": [
+      {
+        "from": "page-8",
+        "to": "pillar-1",
+        "anchor_guidance": "Use 'dedicated WordPress gallery plugin' or 'FooGallery' as anchor — avoid 'click here'. Place in the first solution section, not in a sidebar."
+      },
+      {
+        "from": "page-1",
+        "to": "page-3",
+        "anchor_guidance": "From the Envira comparison, link to the listicle as 'for a broader comparison of all major gallery plugins'"
+      },
+      {
+        "from": "pillar-1",
+        "to": "page-5",
+        "anchor_guidance": "From the pillar's 'use cases' section, link to the photography portfolio guide as 'For photographers specifically...'"
+      }
+    ]
+  },
+  "action_plan": {
+    "quick_wins": ["page-1", "page-3", "page-5", "page-8", "page-11"],
+    "medium_term": ["page-2", "page-6", "page-9", "page-10", "page-12", "page-13"],
+    "strategic": ["page-4", "page-7", "page-14"]
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "site": "https://envira-gallery.com/",
+    "topic": "everything Envira Gallery ranks for",
+    "topic_slug": "envira-gallery-competitor-map",
+    "generated_at": "2026-05-20",
+    "goal": "informational",
+    "goal_tilt": "commercial",
+    "data_sources": ["dataforseo"],
+    "data_confidence": "low"
+  },
+  "core_topic": {
+    "definition": "Reverse-engineered topical map of envira-gallery.com — the keyword and content territory they've claimed, intended to inform FooGallery's competitive content strategy.",
+    "audience": "Internal — FooPlugins content/SEO team. NOT for publication."
+  },
+  "pillars": [
+    {
+      "id": "pillar-1",
+      "title": "Envira Gallery (product hub)",
+      "url": "https://envira-gallery.com/",
+      "status": "exists",
+      "goal": "commercial",
+      "target_keywords": [
+        "envira gallery",
+        "envira gallery plugin",
+        "envira gallery wordpress"
+      ],
+      "rationale": "Branded queries — they own these by definition. Not a contest. Noting them only to map the structure.",
+      "clusters": ["cluster-1", "cluster-2", "cluster-3"]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-1",
+      "theme": "Add-ons & Integrations (where they're strong)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "Envira Gallery WooCommerce Add-on",
+          "url": "https://envira-gallery.com/addons/woocommerce-addon/",
+          "status": "exists",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "wordpress gallery woocommerce",
+          "priority": "P1",
+          "llm_citation_potential": "medium",
+          "notes": "DataForSEO shows they rank pos 3 for 'wordpress gallery woocommerce' (720 monthly volume). This is a direct attack surface — FooGallery should build a stronger WooCommerce integration landing page (already in this map as page-6 of the FooGallery commercial map)."
+        },
+        {
+          "id": "page-2",
+          "title": "Envira Gallery Lightroom Add-on",
+          "url": "https://envira-gallery.com/addons/lightroom-addon/",
+          "status": "exists",
+          "intent": "commercial",
+          "type": "guide",
+          "target_query": "wordpress lightroom integration",
+          "priority": "P2",
+          "llm_citation_potential": "low",
+          "notes": "Niche but they own it. Lightroom integration is a meaningful pro-photographer hook. Worth evaluating if FooGallery should build similar or compete differently."
+        }
+      ]
+    },
+    {
+      "id": "cluster-2",
+      "theme": "Tutorial Content (their content moat)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-3",
+          "title": "How to Create an Image Gallery in WordPress",
+          "url": "https://envira-gallery.com/how-to-create-image-gallery-wordpress/",
+          "status": "exists",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "how to create image gallery wordpress",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "DataForSEO shows pos 2 for this term. Their highest-traffic tutorial. FooGallery's 'how to add image gallery' page (page-8 in commercial map) competes on a similar query — needs to be measurably better."
+        },
+        {
+          "id": "page-4",
+          "title": "How to Create a Responsive Image Gallery in WordPress",
+          "url": "https://envira-gallery.com/how-to-create-responsive-image-gallery-wordpress/",
+          "status": "exists",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "responsive image gallery wordpress",
+          "priority": "P2",
+          "llm_citation_potential": "high",
+          "notes": "Pos 4 for the head term. Validates that this tutorial topic has traffic — corresponds to page-9 in the FooGallery commercial map."
+        },
+        {
+          "id": "page-5",
+          "title": "How to Add Lazy Loading to WordPress Images",
+          "url": "https://envira-gallery.com/lazy-load-images-wordpress/",
+          "status": "exists",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "lazy load images wordpress",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Pos 6. Tangential to galleries specifically but they captured the broader image-handling traffic. Possible new page for FooGallery."
+        }
+      ]
+    },
+    {
+      "id": "cluster-3",
+      "theme": "Comparison & Listicle Content",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-6",
+          "title": "Best WordPress Gallery Plugins (Envira's own listicle)",
+          "url": "https://envira-gallery.com/best-wordpress-gallery-plugins/",
+          "status": "exists",
+          "intent": "commercial",
+          "type": "listicle",
+          "target_query": "best wordpress gallery plugins",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Pos 3. Self-listing themselves at #1 in their own listicle (as expected). FooGallery's competing listicle (page-3 in commercial map) needs to outrank this — fresher data, better UX, more honest tone."
+        }
+      ]
+    }
+  ],
+  "internal_linking": {
+    "rules": [
+      "N/A — this is a competitor analysis map, not a build map. No internal linking recommendations apply."
+    ],
+    "specific_recommendations": []
+  },
+  "action_plan": {
+    "quick_wins": [],
+    "medium_term": [],
+    "strategic": []
+  }
+}

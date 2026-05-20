@@ -1,0 +1,49 @@
+{
+  "maps": [
+    {
+      "generated_at": "2026-03-12",
+      "site": "https://fooplugins.com/",
+      "topic": "WordPress image galleries",
+      "topic_slug": "wordpress-image-galleries",
+      "goal": "commercial",
+      "schema_version": "1.0",
+      "html_path": "/mnt/user-data/outputs/topical-authority-map-wordpress-image-galleries-2026-03-12.html",
+      "json_path": "/mnt/user-data/outputs/topical-authority-map-wordpress-image-galleries-2026-03-12.json",
+      "data_confidence": "high",
+      "pillar_count": 1,
+      "cluster_count": 4,
+      "total_pages": 11,
+      "quick_win_count": 3
+    },
+    {
+      "generated_at": "2026-04-28",
+      "site": "https://fooplugins.com/",
+      "topic": "WooCommerce product images",
+      "topic_slug": "woocommerce-product-images",
+      "goal": "mixed",
+      "schema_version": "1.0",
+      "html_path": "/mnt/user-data/outputs/topical-authority-map-woocommerce-product-images-2026-04-28.html",
+      "json_path": "/mnt/user-data/outputs/topical-authority-map-woocommerce-product-images-2026-04-28.json",
+      "data_confidence": "medium",
+      "pillar_count": 1,
+      "cluster_count": 5,
+      "total_pages": 18,
+      "quick_win_count": 4
+    },
+    {
+      "generated_at": "2026-05-20",
+      "site": "https://fooplugins.com/",
+      "topic": "WordPress image galleries",
+      "topic_slug": "wordpress-image-galleries",
+      "goal": "commercial",
+      "schema_version": "1.0",
+      "html_path": "/mnt/user-data/outputs/topical-authority-map-wordpress-image-galleries-2026-05-20.html",
+      "json_path": "/mnt/user-data/outputs/topical-authority-map-wordpress-image-galleries-2026-05-20.json",
+      "data_confidence": "high",
+      "pillar_count": 1,
+      "cluster_count": 5,
+      "total_pages": 14,
+      "quick_win_count": 5
+    }
+  ]
+}

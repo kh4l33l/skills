@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "site": "https://example-photography-blog.com/",
+    "topic": "image SEO for photographers",
+    "topic_slug": "image-seo-photographers",
+    "generated_at": "2026-05-20",
+    "goal": "informational",
+    "goal_tilt": null,
+    "data_sources": ["gsc", "dataforseo", "page_scrape"],
+    "data_confidence": "medium"
+  },
+  "core_topic": {
+    "definition": "How professional photographers should optimize images on their websites for search engines — file formats, alt text, structured data, page speed, and discovery.",
+    "audience": "Working photographers running their own portfolio or business sites, semi-technical, want practical SEO advice without diving into developer-level detail."
+  },
+  "pillars": [
+    {
+      "id": "pillar-1",
+      "title": "Image SEO for Photographers: The Complete Guide",
+      "url": null,
+      "status": "new",
+      "goal": "informational",
+      "target_keywords": [
+        "image seo for photographers",
+        "photography seo guide",
+        "seo for photography websites"
+      ],
+      "rationale": "No existing pillar — GSC shows scattered impressions across 8 tangentially related posts but no comprehensive hub. DataForSEO shows 1,300 monthly volume on the head term with no dominant ranker; competitive opening.",
+      "clusters": ["cluster-1", "cluster-2", "cluster-3", "cluster-4"]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-1",
+      "theme": "Image File Formats & Optimization",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-1",
+          "title": "JPEG vs PNG vs WebP for Photography: Which Format to Use",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "comparison",
+          "target_query": "jpeg vs png vs webp photography",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Comparison + decision-tree format = strong LLM citation potential. DataForSEO shows 890 monthly volume."
+        },
+        {
+          "id": "page-2",
+          "title": "How to Compress Images Without Losing Quality",
+          "url": "https://example-photography-blog.com/compress-images/",
+          "status": "expand",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "compress images without losing quality",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "GSC: 6,400 impressions / pos 11.2 — sitting just off page 1. Expand with more tools comparison, before/after examples, and side-by-side tests."
+        },
+        {
+          "id": "page-3",
+          "title": "WebP for Photographers: Should You Use It in 2026?",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "webp for photographers",
+          "priority": "P2",
+          "llm_citation_potential": "high",
+          "notes": "Format-specific guide. Browser support context, conversion tools, when not to use."
+        }
+      ]
+    },
+    {
+      "id": "cluster-2",
+      "theme": "Alt Text & Metadata",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-4",
+          "title": "How to Write Alt Text for Photography (with 20 examples)",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "alt text for photography",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Numbered-examples format is LLM-citation gold. Cover accessibility + SEO together."
+        },
+        {
+          "id": "page-5",
+          "title": "EXIF Data and SEO: Does It Matter?",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "exif data seo",
+          "priority": "P3",
+          "llm_citation_potential": "medium",
+          "notes": "Niche but genuinely useful. Answer the question definitively (mostly: no, but copyright EXIF matters)."
+        }
+      ]
+    },
+    {
+      "id": "cluster-3",
+      "theme": "Structured Data for Images",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-6",
+          "title": "ImageObject Schema for Photographers: A Practical Guide",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "imageobject schema photography",
+          "priority": "P2",
+          "llm_citation_potential": "high",
+          "notes": "Show actual JSON-LD code. Schema markup pages tend to earn LLM citations because they're definitional."
+        },
+        {
+          "id": "page-7",
+          "title": "Image Sitemaps: Do Photographers Still Need Them?",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "definition",
+          "target_query": "image sitemap",
+          "priority": "P3",
+          "llm_citation_potential": "medium",
+          "notes": "Definitive answer page. Google's stance has evolved — current accurate guidance."
+        }
+      ]
+    },
+    {
+      "id": "cluster-4",
+      "theme": "Image Discovery (Google Images, Lens, Pinterest)",
+      "pillar_id": "pillar-1",
+      "pages": [
+        {
+          "id": "page-8",
+          "title": "How to Get Your Photos in Google Image Search",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "tutorial",
+          "target_query": "rank in google images",
+          "priority": "P1",
+          "llm_citation_potential": "high",
+          "notes": "Strong head-term opportunity. DataForSEO shows 2,100 monthly volume. Step-by-step format."
+        },
+        {
+          "id": "page-9",
+          "title": "Google Lens for Photographers: What It Means for Your SEO",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "google lens photography seo",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Emerging topic — fewer current authoritative pages, opportunity to be the definitive resource."
+        },
+        {
+          "id": "page-10",
+          "title": "Pinterest SEO for Photographers: Complete 2026 Guide",
+          "url": null,
+          "status": "new",
+          "intent": "informational",
+          "type": "guide",
+          "target_query": "pinterest seo photography",
+          "priority": "P2",
+          "llm_citation_potential": "medium",
+          "notes": "Pinterest is a major image-search destination for photography. Include account setup, board strategy, pin SEO."
+        }
+      ]
+    }
+  ],
+  "internal_linking": {
+    "rules": [
+      "All cluster pages link back to the pillar within the first section, with anchor that names the pillar explicitly ('image SEO for photographers')",
+      "Cluster-1 (formats) pages cross-link liberally — readers comparing formats benefit from related comparisons",
+      "Tutorial pages link forward to the structured-data cluster as 'next step' content",
+      "The pillar links out to the strongest 2 pages per cluster — not every page"
+    ],
+    "specific_recommendations": [
+      {
+        "from": "page-2",
+        "to": "page-1",
+        "anchor_guidance": "From the compression tutorial, link to the JPEG/PNG/WebP comparison as 'before compressing, choose the right format — here's how to decide'"
+      },
+      {
+        "from": "page-8",
+        "to": "page-6",
+        "anchor_guidance": "From the Google Images guide, link to ImageObject schema as 'to give Google more context about your images, add structured data'"
+      }
+    ]
+  },
+  "action_plan": {
+    "quick_wins": ["page-2"],
+    "medium_term": ["page-1", "page-4", "page-8", "pillar-1"],
+    "strategic": ["page-3", "page-5", "page-6", "page-7", "page-9", "page-10"]
+  }
+}
