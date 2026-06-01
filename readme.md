@@ -1,6 +1,6 @@
 # Skills
 
-A collection of agent skills for SEO analysis, topical authority planning, frontend/UI guidance, and WordPress.org plugin search ranking work.
+A collection of agent skills for SEO analysis, topical authority planning, marketing conversion review, frontend/UI guidance, and WordPress.org plugin search ranking work.
 
 Each skill lives in its own directory and is defined by a `SKILL.md` file with frontmatter metadata (`name`, `description`, and optional compatibility/licensing notes) followed by the workflow instructions an agent should follow.
 
@@ -21,6 +21,12 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 | --- | --- | --- |
 | UI Skills | [`UI/ui-skills/SKILL.md`](./UI/ui-skills/SKILL.md) | Provides opinionated implementation constraints for accessible, consistent, high-quality agent-built interfaces. |
 | Frontend Design | [`UI/frontend-design/SKILL.md`](./UI/frontend-design/SKILL.md) | Guides production-grade frontend interface design with a clear visual direction and polished implementation details. |
+
+### Marketing
+
+| Skill | Path | Purpose |
+| --- | --- | --- |
+| Buy or Bounce | [`MARKETING/buy-or-bounce/SKILL.md`](./MARKETING/buy-or-bounce/SKILL.md) | Simulates five buyer personas reviewing a conversion asset section by section, then produces an HTML report with buyer verdicts, friction clusters, prioritized fixes, and rewrite directions. Original concept by [@olelehmann1337](https://github.com/olelehmann1337). |
 
 ### WordPress
 
