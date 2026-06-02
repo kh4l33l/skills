@@ -3,9 +3,9 @@ name: compose-viral-skill-x-post
 description: Use this skill whenever the user wants to turn an AI skill, prompt, workflow, agent setup, automation, pipeline, or tool into a high-engagement X/Twitter post or thread. Trigger on requests like "write an X post about my skill", "turn this workflow into a tweet thread", "help me share this prompt on Twitter", "make this go viral", "draft a launch post for my agent", "promote my automation on X", or any time the user has built something AI-related and wants to announce, showcase, or distribute it to an audience. Also use when the user asks for a hook, a thread breakdown, an infographic prompt for a post, or a CTA for sharing skill-style content. Covers hooks, breakdowns, infographic prompts, CTAs, timing, and anti-hype checks for AI, indie-hacking, productivity, and monetization audiences.
 metadata:
   author: bradvin
-  version: "2.0"
+  version: "2.1"
   created: "2026-05-28"
-  updated: "2026-05-29"
+  updated: "2026-06-02"
 ---
 
 # Compose Viral Skill X Post
@@ -23,12 +23,14 @@ People save and share posts that hand them a reusable mental model or tool they 
 
 Bookmarks, reply quality, and DM volume are better success signals than raw likes — they indicate intent, not vanity.
 
+Audience fit matters. This skill works best for tool-hungry niches like AI workflows, automation, content creation, sales, productivity, and monetization. For abstract, entertainment-only, or purely opinion content, narrow the promise and do not force a giveaway or framework angle.
+
 ## Before you write: gather the inputs
 
 Pull these from the conversation if they're already there. For most items, if they're missing, make a reasonable assumption and note it rather than interrogating the user. **Proof is the one exception — never invent it.**
 
 1. **What the skill does** — the one-line job and the core mechanism (why it's repeatable/unique).
-2. **Components** — the 4-9 parts, steps, or agents. Each should ideally have a single responsibility.
+2. **Components** — the 4-9 parts, steps, or agents. Each should ideally have a single responsibility. If the source material is fuzzy, first extract 3-5 core elements, then expand or consolidate only when the structure is clear.
 3. **Proof (do not fabricate).** A real metric is the single strongest hook ingredient — revenue, time saved, before/after CTR, output volume, etc. First check whether the conversation, the user's earlier messages, attached files, or prior data already contain one. If you find evidence, use it. If you do NOT find a real metric, do not invent one and do not silently fall back to a vague outcome claim — **stop and ask the user for the actual number** before writing the post (e.g. "Do you have a real result for this — revenue, hours saved, a before/after? That makes the hook far stronger. If you'd rather not share a number, I'll write an outcome-based hook instead."). Only after the user declines or confirms there's no metric do you proceed with a qualified, outcome-based hook and no numbers. A made-up metric is the fastest way to get the post ratio'd and destroy the author's credibility, so this is worth one quick question.
 4. **The asset** — what you'll actually give away (prompt file, JSON, skill files, Notion doc). The CTA must match something deliverable.
 5. **Format** — single post vs. thread (see below).
@@ -57,7 +59,7 @@ Build the post in this order. The full copy-paste template lives in `references/
 
 6. **Use it for (4-7 cases).** Concrete scenarios so readers picture immediate value.
 
-7. **CTA.** Match it to the real asset. Two reliable forms: "Full breakdown + the free [asset] below" (link/thread) or "Comment '[KEYWORD]' + like/repost/follow and I'll DM it." The comment-keyword form drives replies, which boost reach.
+7. **CTA.** Match it to the real asset. Two reliable forms: "Full breakdown + the free [asset] below" (link/thread) or "Comment '[KEYWORD]' + like/repost/follow and I'll DM it." The comment-keyword form drives replies, which boost reach. If the goal is retention, add a newsletter or community CTA after the immediate asset CTA, not instead of it.
 
 ## The infographic
 
@@ -70,6 +72,8 @@ These are the failure modes that get posts ratio'd or quietly ignored. Verify ev
 - Every metric in the post is real — pulled from evidence or supplied by the user. None are invented, estimated, or guessed. If a number was needed and the user hadn't given one, you asked rather than filling it in.
 - The hook's payoff is true and obvious in sentence one.
 - The breakdown has 4-9 labeled parts, each with one clear job.
+- Technical claims are scoped and caveated. For technical skills, include edge cases, verification loops, or what was actually tested.
+- A beginner can tell what to do first. If the setup needs prerequisites, name them plainly.
 - If it's a thread, the strongest value is in tweets 1-3.
 - The infographic reads clearly on a phone and shows input → process → output.
 - The CTA promises only an asset that actually exists and can be delivered.
