@@ -1,6 +1,6 @@
 # Skills
 
-A collection of agent skills for SEO analysis, topical authority planning, marketing conversion review, X/social post drafting, frontend/UI guidance, and WordPress.org plugin search ranking work.
+A collection of agent skills for SEO analysis, topical authority planning, project knowledge bases, marketing conversion review, X/social post drafting, frontend/UI guidance, and WordPress.org plugin search ranking work.
 
 Each skill lives in its own directory and is defined by a `SKILL.md` file with frontmatter metadata (`name`, `description`, and optional compatibility/licensing notes) followed by the workflow instructions an agent should follow.
 
@@ -21,6 +21,12 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 | --- | --- | --- |
 | UI Skills | [`UI/ui-skills/SKILL.md`](./UI/ui-skills/SKILL.md) | Provides opinionated implementation constraints for accessible, consistent, high-quality agent-built interfaces. |
 | Frontend Design | [`UI/frontend-design/SKILL.md`](./UI/frontend-design/SKILL.md) | Guides production-grade frontend interface design with a clear visual direction and polished implementation details. |
+
+### Productivity
+
+| Skill | Path | Purpose |
+| --- | --- | --- |
+| Project Knowledge Base | [`PRODUCTIVITY/project-knowledge-base/SKILL.md`](./PRODUCTIVITY/project-knowledge-base/SKILL.md) | Maintains an OKF-inspired, Markdown-first project documentation tree as a durable second brain for humans and agents, with operating metadata, auditing rules, and suggested cron jobs. |
 
 ### Marketing
 
