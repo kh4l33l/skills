@@ -527,6 +527,26 @@ timestamp: 2026-06-20T09:00:00+00:00
 - [Document title](...)
 ```
 
+## Agent Write-Back Contract
+
+A project knowledge base only works as a second brain if every agent writes back durable outcomes. After meaningful work, agents must update the project docs with only durable facts:
+
+- What changed.
+- Evidence link: PR, issue, commit, report, dashboard, support ticket, research source, execution card, or artifact.
+- Decision made or decision needed.
+- Updated next action.
+- Blocker, if any.
+- Where follow-up execution lives: task doc, issue, card, project file, or external artifact.
+
+Suggested role boundaries:
+
+- **Operator / PM agents** own portfolio hygiene, prioritization, status, synthesis, and execution orchestration.
+- **SEO / growth agents** write durable search, analytics, content, and growth findings into `research/`, `tasks/`, project `index.md`, or `status.md`.
+- **Development agents** write durable repo, PR, build, test, release, and technical-design outcomes into `log.md`, `tasks/`, `links.md`, `decisions.md`, or `status.md`.
+- **Research agents** write durable customer, market, competitor, and technical due-diligence findings into `research/` and link implications back to `status.md` or `tasks/`.
+
+Do not write chat transcripts, temporary scratch notes, or unverified claims. If evidence is missing, record the unknown instead of converting an assumption into project state.
+
 ## Task Files
 
 Use task files for meaningful work items that need context, acceptance criteria, or history. Do not create a file for every tiny todo.
@@ -850,7 +870,10 @@ Rules:
 - Add a `## Handoff brief` section to meaningful task docs before creating cards/issues. Include: assignee, expected output, inputs, acceptance criteria, constraints, evidence required, and where to write the durable result.
 - Add/update a `## Execution` section only after successful card/issue creation. Include returned ID/URL, assignee, status/date, and dependency notes.
 - Use deterministic idempotency keys or unique source links where the execution system supports them to avoid duplicate cards.
-- Scheduled sweeps should close the loop: inspect done/blocked/review items, reflect durable evidence/results into project docs, archive reflected done items, and capture blocked/review-required items in project docs or `unknowns.md`.
+- Scheduled sweeps should close the loop: inspect done/blocked/review items, verify evidence, reflect durable results into project docs, archive reflected done items only after the source docs are updated, and capture blocked/review-required items in project docs or `unknowns.md`.
+- A done execution item is not operationally done until its durable outcome is reflected into the project knowledge base.
+- Blocked execution items should update the relevant project `status.md`, task doc, or root `unknowns.md` with the blocker and decision needed.
+- Research, growth, and development outputs should link back to the exact project files they updated.
 
 ## Operational Review Lens
 
@@ -893,4 +916,6 @@ After creating or updating project docs, verify:
 - [ ] Retained `log.md` records real durable changes, not generic cadence/template text.
 - [ ] Any assumptions are labeled clearly.
 - [ ] Recommendations are tied to impact, leverage, strategic learning, maintenance burden, and opportunity cost.
+- [ ] Durable outcomes from execution cards, PRs, reports, or research have been reflected back into the relevant project docs.
+- [ ] Unresolved questions are captured in root `unknowns.md` or a project `## Open questions` section instead of being guessed.
 - [ ] If changes were made, version control diff is reviewed and committed.
