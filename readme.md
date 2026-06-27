@@ -14,6 +14,7 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 | Content Gap Finder | [`SEO/content-gap-finder/SKILL.md`](./SEO/content-gap-finder/SKILL.md) | Compares a website page against Google Search Console query data, with DataForSEO enrichment and optional GA4 engagement context, to find section additions and new page opportunities. |
 | SEO Title Optimizer | [`SEO/seo-title-optimizer/SKILL.md`](./SEO/seo-title-optimizer/SKILL.md) | Uses page scrape, GSC, DataForSEO, live SERP, and optional GA4 data to recommend title tags, H1s, and meta descriptions. |
 | Topical Authority Map Generator | [`SEO/topical-authority-map-generator/SKILL.md`](./SEO/topical-authority-map-generator/SKILL.md) | Builds a hierarchical topical authority map with pillar pages, clusters, supporting pages, an HTML report, and a machine-readable JSON map. |
+| Article E-E-A-T Pruning Audit | [`SEO/article-eeat-pruning-audit/SKILL.md`](./SEO/article-eeat-pruning-audit/SKILL.md) | Audits a single article for helpful-content quality, E-E-A-T/trust signals, freshness, factual risk, and pruning actions: keep, update, merge, redirect, noindex, or delete. |
 
 ### UI
 
