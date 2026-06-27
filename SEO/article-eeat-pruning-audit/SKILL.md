@@ -66,20 +66,46 @@ If a URL is provided, inspect the actual page. Extract where possible:
 
 Identify the likely page purpose and user/search intent.
 
-### 2. Collect optional SEO and pruning evidence
+### 2. Collect SEO and pruning evidence in evidence tiers
+
+Record the audit evidence tier:
+
+- `Tier 1: content-only` — page content and metadata only.
+- `Tier 2: content + site crawl` — page plus sitemap/internal replacement targets.
+- `Tier 3: content + GSC` — page plus Search Console page/query data.
+- `Tier 4: content + GSC + backlinks/conversions` — strongest basis for pruning decisions.
 
 Use available sources before making destructive recommendations:
 
-- Search Console page metrics over a meaningful window, ideally 12 months plus recent trend
-- query/page pairs to understand actual search intent
-- backlinks or externally linked pages
-- internal links and navigation importance
-- cannibalizing pages or stronger canonical alternatives
-- conversion or engagement data where available
+- Search Console page metrics over a meaningful window, ideally 12 months plus recent trend.
+- Query/page pairs to understand actual search intent and query-business fit.
+- Backlinks or externally linked pages.
+- Internal links and navigation importance.
+- Cannibalizing pages or stronger canonical alternatives.
+- Conversion or engagement data where available.
+
+Use GSC to shape priority, not to judge quality by itself:
+
+- High impressions plus poor position usually means `UPDATE`, not prune.
+- High clicks plus weak business/query fit means `UPDATE/RETARGET`, not automatically keep.
+- Low/no clicks can support pruning only after backlink, internal-link, strategic-value, and replacement-target checks.
 
 If this evidence is missing, lower confidence for redirect/delete/noindex decisions and state what must be checked before implementation.
 
-### 3. Check freshness and factual risk
+### 3. Find replacement/canonical targets before merge, redirect, noindex, or delete
+
+Search the sitemap, internal search, docs, product pages, and related posts for stronger current URLs covering the same intent.
+
+For each candidate target, record:
+
+- URL
+- target type: product page, docs page, current guide, changelog/archive, privacy/legal page, or related post
+- intent match: exact, close, weak, or none
+- whether unique useful content from the audited page should be merged first
+
+Never recommend `MERGE` or `REDIRECT` without naming the preferred target URL or explicitly saying no suitable target was found. Prefer the closest intent match over the homepage.
+
+### 4. Check freshness and factual risk
 
 Extract and verify time-sensitive or high-risk statements:
 
@@ -98,7 +124,7 @@ Classify claims as:
 
 For current-fact checks, use authoritative primary sources where possible and include source URLs in the audit.
 
-### 4. Classify intent, content type, and risk
+### 5. Classify intent, content type, and risk
 
 Before scoring, classify:
 
@@ -109,7 +135,7 @@ Before scoring, classify:
 
 Raise the proof level for YMYL, safety, legal/financial claims, product reviews, affiliate/commercial pages, and pages making strong factual claims.
 
-### 5. Run an emergency trust brake
+### 6. Run an emergency trust brake
 
 Mark the article `BLOCK` regardless of numeric score if evidence shows any of these:
 
@@ -123,7 +149,7 @@ Mark the article `BLOCK` regardless of numeric score if evidence shows any of th
 
 A `BLOCK` verdict means “do not publish or keep indexed as-is”; it does not automatically mean delete.
 
-### 6. Assess Google helpful-content and E-E-A-T alignment
+### 7. Assess Google helpful-content and E-E-A-T alignment
 
 Use Google’s official self-assessment concepts and quality-rater framing:
 
@@ -136,7 +162,7 @@ Use Google’s official self-assessment concepts and quality-rater framing:
 - Would a reader trust the article’s facts, sourcing, author, site, commercial disclosures, and transaction/support context?
 - Is the main content easy to use and not obstructed by ads, popups, broken UX, or misleading page elements?
 
-### 7. Score the article
+### 8. Score the article
 
 Score each dimension from 0 to 10. Higher is better. Every score must include a one-sentence evidence note.
 
@@ -152,9 +178,21 @@ Overall score = average of the five dimensions × 10.
 
 Use the score as a prioritization aid, not as a substitute for judgment. Any emergency trust brake overrides the score.
 
-### 8. Choose the pruning action
+### 9. Choose the pruning action and quality gate separately
 
-Choose exactly one primary action and explain why:
+First choose the **quality gate**:
+
+- **SHIP** when no material trust, freshness, intent, or SEO issues remain; only minor edits are useful.
+- **FIX** when the page should remain in the workflow but needs improvements before it is considered strong/current.
+- **BLOCK** when the page should not remain published/indexed as-is because of serious trust, factual, legal/compliance, safety, deception, or obsolete-current mismatch risk.
+
+Then choose exactly one primary **pruning action** and explain why. The action and gate are independent:
+
+- `UPDATE + FIX` = valuable page needs improvement.
+- `MERGE + FIX` = useful material belongs in a stronger page.
+- `REDIRECT + BLOCK` = page should not stay indexed as-is, but has a clear replacement target.
+- `NOINDEX + BLOCK` = page can remain accessible but should not compete in search.
+- `DELETE + BLOCK` = no recoverable value and no safe reason to keep.
 
 - **KEEP** when the article is current, useful, trusted, unique, and either performs or serves a clear strategic/user purpose. Minor fixes only.
 - **UPDATE** when the topic remains relevant/searchable and the page has value, but facts, examples, screenshots, sections, source support, or author/trust signals are stale or incomplete.
@@ -165,7 +203,7 @@ Choose exactly one primary action and explain why:
 
 Never recommend deletion solely because traffic is low. Check backlinks, internal importance, strategic value, search demand, and replacement/redirect options.
 
-### 9. Produce implementation instructions
+### 10. Produce implementation instructions
 
 For update/merge/keep recommendations, include concrete changes:
 
@@ -195,6 +233,9 @@ Return a concise, evidence-led memo:
 - Published/updated: <dates or unknown>
 - Intended query/audience: <inferred or provided>
 - Performance/link evidence: <data used, or "not available">
+- Evidence tier: Tier 1 / Tier 2 / Tier 3 / Tier 4
+- Top GSC queries and intent fit: <queries or "not available">
+- Replacement/canonical targets checked: <target URLs and intent match, or "not checked/not found">
 - Key sources checked: <source URLs>
 
 ## Classification
@@ -240,6 +281,29 @@ Return a concise, evidence-led memo:
 ## Caveats
 - <missing data, assumptions, or human expert review needed>
 ```
+
+## Consistency rules
+
+Use these rules to keep different agents' outputs aligned:
+
+- Always report the evidence tier. A content-only audit and a GSC-backed audit should not present the same confidence.
+- Always separate **quality gate** from **pruning action**. `BLOCK` means "not safe/strong as-is"; it does not automatically mean delete.
+- Always search for and name replacement/canonical targets before recommending `MERGE` or `REDIRECT`.
+- Use GSC query/page data when available:
+  - prioritize high-impression pages for updates;
+  - flag traffic/query mismatch;
+  - avoid pruning pages with meaningful clicks or impressions until business value and backlinks are checked.
+- Use backlinks/internal links as a final safety check before destructive actions.
+- Score calibration:
+  - 80–100: strong, usually `KEEP + SHIP` or `UPDATE + FIX` for minor improvements.
+  - 65–79: useful but materially improvable, usually `UPDATE + FIX`.
+  - 45–64: weak, stale, thin, or overlapping; often `MERGE + FIX`, `REDIRECT + FIX`, or substantial `UPDATE + FIX`.
+  - Below 45: poor standalone value or serious risk; usually `NOINDEX`, `REDIRECT`, or `DELETE` with `BLOCK` if it should not stay indexed as-is.
+  - Any emergency trust brake: `BLOCK` regardless of score.
+- Confidence calibration:
+  - High requires page inspection plus either GSC/backlink evidence or a non-destructive update recommendation.
+  - Medium is typical for content + sitemap/replacement-target evidence without backlinks.
+  - Low/medium-low is required for delete/noindex/redirect recommendations without backlink data.
 
 ## Official Google sources to use
 
