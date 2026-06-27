@@ -40,6 +40,12 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 | --- | --- | --- |
 | Compose Viral Skill X Post | [`SOCIAL/compose-viral-skill-x-post/SKILL.md`](./SOCIAL/compose-viral-skill-x-post/SKILL.md) | Turns an AI skill, workflow, prompt, agent setup, automation, pipeline, or tool into a high-engagement X/Twitter post or thread with hook options, breakdown structure, CTA guidance, and an optional infographic prompt. |
 
+### Productivity
+
+| Skill | Path | Purpose |
+| --- | --- | --- |
+| AgentMail Newsletter Intelligence | [`PRODUCTIVITY/agentmail-newsletter-intelligence/SKILL.md`](./PRODUCTIVITY/agentmail-newsletter-intelligence/SKILL.md) | Sets up and operates an AgentMail-backed newsletter intelligence inbox that summarizes only useful items, confirms expected signups, forwards attention-needed mail, creates non-duplicate research/execution tasks, and stays silent on noise. |
+
 ### WordPress
 
 | Skill | Path | Purpose |
