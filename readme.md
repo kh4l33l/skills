@@ -1,6 +1,6 @@
 # Skills
 
-A collection of agent skills for SEO analysis, topical authority planning, project knowledge bases, newsletter intelligence, marketing conversion review, health/diet meal planning, X/social post drafting, frontend/UI guidance, cofounder-style project interviews, SaaS pre-launch security review, and WordPress.org plugin search ranking work.
+A collection of agent skills for SEO analysis, topical authority planning, project knowledge bases, newsletter intelligence, marketing conversion review, health/diet meal planning, X/social post drafting, frontend/UI guidance, cofounder-style project interviews, SaaS pre-launch security review, WordPress.org plugin search ranking, and WordPress support debugging work.
 
 Each skill lives in its own directory and is defined by a `SKILL.md` file with frontmatter metadata (`name`, `description`, and optional compatibility/licensing notes) followed by the workflow instructions an agent should follow.
 
@@ -65,6 +65,7 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 | Skill | Path | Purpose |
 | --- | --- | --- |
 | WP Plugin Search Ranker | [`WP/wp-plugin-search-ranker/SKILL.md`](./WP/wp-plugin-search-ranker/SKILL.md) | Diagnoses WordPress.org plugin directory search rankings for a given plugin and search term, then recommends prioritized ranking improvements. |
+| WordPress Support Debugging | [`WP/wordpress-support-debugging/SKILL.md`](./WP/wordpress-support-debugging/SKILL.md) | Guides evidence-led WordPress plugin support debugging: choose the right local/cloud repro tool, collect proof, test a fix or snippet, and draft a support reply. |
 
 ## Using These Skills
 
