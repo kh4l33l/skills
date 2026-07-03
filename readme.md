@@ -1,6 +1,6 @@
 # Skills
 
-A collection of agent skills for SEO analysis, topical authority planning, project knowledge bases, newsletter intelligence, marketing conversion review, health/diet meal planning, X/social post drafting, frontend/UI guidance, cofounder-style project interviews, SaaS pre-launch security review, WordPress.org plugin search ranking, and WordPress support debugging work.
+A collection of agent skills for SEO analysis, topical authority planning, project knowledge bases, newsletter intelligence, marketing conversion review, health/diet meal planning, X/social post drafting, frontend/UI guidance, cofounder-style project interviews, SaaS pre-launch security review, Cloudflare site auditing, WordPress.org plugin search ranking, and WordPress support debugging work.
 
 Each skill lives in its own directory and is defined by a `SKILL.md` file with frontmatter metadata (`name`, `description`, and optional compatibility/licensing notes) followed by the workflow instructions an agent should follow.
 
@@ -58,7 +58,13 @@ Each skill lives in its own directory and is defined by a `SKILL.md` file with f
 
 | Skill | Path | Purpose |
 | --- | --- | --- |
-| SaaS Pre-launch Security Checklist | [`SAAS/saas-prelaunch-security-checklist/SKILL.md`](./SAAS/saas-prelaunch-security-checklist/SKILL.md) | Runs a practical security/privacy readiness gate before launching, dogfooding, beta-testing, or onboarding real users to a SaaS app, with FooPlugins/AgentArmy-specific minimum checks. |
+| SaaS Pre-launch Security Checklist | [`SAAS/saas-prelaunch-security-checklist/SKILL.md`](./SAAS/saas-prelaunch-security-checklist/SKILL.md) | Runs a practical security/privacy readiness gate before launching, dogfooding, beta-testing, or onboarding real users to a SaaS app, with project-specific minimum checks. |
+
+### DevOps
+
+| Skill | Path | Purpose |
+| --- | --- | --- |
+| Cloudflare Site Audit | [`DEVOPS/cloudflare-site-audit/SKILL.md`](./DEVOPS/cloudflare-site-audit/SKILL.md) | Audits a Cloudflare-hosted site from the CLI/API for DNS proxying, crawler access, HTTPS/TLS, caching, security posture, AI bot policies, and prioritized next steps. |
 
 ### WordPress
 
