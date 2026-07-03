@@ -152,6 +152,8 @@ agentmail inboxes:messages list \
   --format json
 ```
 
+AgentMail automatically scans inbound messages for spam and viruses. Virus/malware messages are rejected at the gateway and are never stored. Spam messages are stored, but excluded from default list/search results unless `--include-spam` / `include_spam` is set. Full-text message search excludes spam, trash, blocked, and unauthenticated messages, so use list/get flows with `--include-spam true` when auditing a newsletter queue.
+
 If there are no messages, stay silent unless the user explicitly asked for heartbeat reports.
 
 ### Step 2: Fetch full message content
@@ -226,7 +228,9 @@ agentmail inboxes:messages forward \
 
 #### D. Spam or irrelevant promotional mail
 
-Trash it without summarizing.
+Trash it without summarizing. Do **not** add a `spam` label merely because a newsletter is low-value or irrelevant. Use `trash` plus optional workflow labels such as `processed`, `irrelevant-newsletter`, or `low-value-newsletter` for legitimate newsletters that are not worth attention.
+
+Reserve `spam` for provider/system spam findings, phishing, abuse, or mail the user would reasonably want treated as spam. If future delivery from a sender/domain should be rejected, use AgentMail receive block lists intentionally; do not infer that from one low-value newsletter issue.
 
 ### Step 4: Read source links when needed
 
@@ -321,6 +325,8 @@ Only trash after the relevant processing side effect succeeds:
 - Forwarding completed.
 - Spam classification made.
 
+Labels organize stored messages; they are not the same as delivery controls. AgentMail receive block lists are the mechanism that can reject future inbound mail from a sender or domain. Use block lists conservatively: require repeated low-value/unwanted mail, clear abuse, or explicit user approval.
+
 If cleanup fails, report the failure so the user knows the inbox may need manual cleanup.
 
 ## Output Policy
@@ -406,7 +412,7 @@ Rules:
 - Stay silent if nothing useful is found.
 - Confirm expected signup/forwarding confirmations only when sender and domain are authentic and the confirmation matches a user-requested setup.
 - Forward attention-needed non-newsletter mail to <human email>.
-- Trash spam and processed mail.
+- Trash processed mail. For low-value but legitimate newsletters, trash or label as processed/irrelevant; do not mark as spam. Reserve spam/block lists for genuine abuse or explicit user-approved blocking.
 - Before creating a task, search active and recent tasks for duplicates.
 - Create tasks only for concrete, bounded, high-value follow-ups.
 
@@ -432,6 +438,8 @@ Final output:
 - **Clicking suspicious links.** Do not click if the sender, domain, or context does not match the expected workflow.
 - **Deleting before side effects succeed.** Trash only after summary/task/forward/confirmation succeeds.
 - **Over-valuing generic news.** Create tasks only when the item supports a concrete decision or business goal.
+- **Conflating irrelevant with spam.** Low-value newsletters should be trashed or labelled as processed/irrelevant, not marked as spam. Spam-labelled messages are hidden from default AgentMail results unless explicitly included.
+- **Blocking senders too aggressively.** Receive block lists affect future delivery. Do not block a sender/domain based on one bad issue unless the user explicitly approves or the sender is clearly abusive/phishing.
 
 ## Verification Checklist
 
@@ -439,6 +447,9 @@ Final output:
 - [ ] Credential loading works in the scheduled environment.
 - [ ] Forwarding destination is explicit.
 - [ ] Cleanup/trash command was tested on a safe message.
+- [ ] Spam policy distinguishes low-value newsletters from genuine spam/abuse.
+- [ ] Receive block-list policy requires repeated evidence or explicit approval.
+- [ ] Candidate-message listing includes spam when auditing for false positives.
 - [ ] Confirmation-link policy is documented.
 - [ ] Relevance criteria are tailored to the user/company goals.
 - [ ] Duplicate/recent-task check is mandatory before task creation.
